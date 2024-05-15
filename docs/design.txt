@@ -1,0 +1,93 @@
+A program is required that prompts a user for their current mood, and what they would like their mood to be. It then recommends a song for them and displays a link for them to click to listen to that song. The program will then as them if they would like to run the program again, or if they feel the way they want to feel.
+
+
+1. Nouns and Verbs
+Nouns: current mood, desired mood, song, link
+Verbs: prompt, recommend, displays
+
+2. Defining Diagram
+INPUTS:
+  currentMood
+  desiredMood
+  randomArrayChoice
+
+PROCESSING:
+  prompt for currentMood
+  prompt for desiredMood
+  generate random suggestedSong from proper array
+  display suggestedSong
+
+OUTPUTS:
+  suggestedSong
+  link to retry
+
+3. Solution Algorithm
+
+DesiredMoodSongGenerator
+  Initialize and prompt for currentMood with "How are you feeling? happy, sad, angry, tired, excited"
+  Initialize and prompt for desiredMood with "How do you want to feel? happy, sad, angry, tired, excited"
+  Initialize suggestedSong
+  Initialize randomArrayChoice
+
+  Have arrays for each mood type with titles and links to songs
+    Use function to generate random number to pull from proper array
+    function randomArrayChoice
+    return moodArray[Math.floor(Math.random() * moodArray.length)
+
+  Case with if statement
+    if currentMood === desiredMood
+      display "You don't need this program"
+    else
+      case happy
+	suggestedSong = randomArrayChoice(happySongs)
+      case sad
+	suggestedSong = randomArrayChoice(sadSongs)
+      case angry
+	suggestedSong = randomArrayChoice(angrySongs)
+      case tired
+	suggestedSong = randomArrayChoice(tiredSongs)
+      case excited
+	suggestedSong = randomArrayChoice(excitedSongs)
+      case default
+	display "Are you sure you entered the correct values? Click to try again"
+
+  display "Here is a song to make you " + desiredMood + suggestedSong
+  display "If that didn't help, click here to try again"
+
+4. Test Plan
+
+Variables: currentMood, desiredMood, randomArrayChoice
+
+Test Case 1:
+
+  Input Values: happy, sad
+
+  Expected Result: Here is a song to make you feel sad - random song
+
+  Actual Result: Here is a song to make you feel sad - REM - Everybody Hurts
+
+Test Case 2: 
+
+  Input Values: AngrY, ExCiTeD
+
+  Expected Result:  Here is a song to make you feel excited - random song
+
+  Actual Result:  Here is a song to make you feel excited - The Isley Brothers - Shout
+
+Test Case 3:
+
+  Input Values: blah, Happy
+
+  Expected Result: Here is a song to make you feel happy - random song
+
+  Actual Result: Here is a song to make you feel happy - Pharrell Williams - Happy
+
+Test Case 4: 
+
+  Input Values: old, young
+
+  Expected Result: Are you sure you entered the correct values? Click here to try again.
+
+  Actual Result: Are you sure you entered the correct values? Click here to try again.
+
+
